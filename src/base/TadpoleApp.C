@@ -4,6 +4,11 @@
 #include "ModulesApp.h"
 #include "MooseSyntax.h"
 
+/*
+ * Kernels
+ */
+#include "LaplaceYoung.h"
+
 template<>
 InputParameters validParams<TadpoleApp>()
 {
@@ -45,6 +50,10 @@ extern "C" void TadpoleApp__registerObjects(Factory & factory) { TadpoleApp::reg
 void
 TadpoleApp::registerObjects(Factory & factory)
 {
+  /*
+   * Kernels
+   */
+   registerKernel(LaplaceYoung);
 }
 
 // External entry point for dynamic syntax association
